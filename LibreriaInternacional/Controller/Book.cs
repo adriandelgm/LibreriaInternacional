@@ -18,11 +18,11 @@ namespace LibreriaInternacional.Controller
             return ConvertDSToList(ds);
         }
 
-        public List<a.Books> GetBooks(int id)
+        public List<a.Books> GetBook(int idBook)
         {
             DatabaseHelper.Database db = new DatabaseHelper.Database();
 
-            DataTable ds = db.GetBooks(id);
+            DataTable ds = db.GetBooks(idBook);
 
             return ConvertDSToList(ds);
         }
@@ -35,13 +35,15 @@ namespace LibreriaInternacional.Controller
             {
                 booksList.Add(new a.Books
                 {
-                    ISBN = Convert.ToInt16(row["ISBN"]),
+                    idBook = Convert.ToInt16(row["idBook"]),
+                    ISBN = row["ISBN"].ToString(),
                     Image = row["Image"].ToString(),
                     Title = row["Title"].ToString(),
                     Author = row["Author"].ToString(),
                     Description = row["Description"].ToString(),
                     PublishingDate = row["PublishingDate"].ToString(),
-                    Price = Convert.ToDecimal(row["price"])
+                    Price = Convert.ToDecimal(row["price"]),
+                    Status = row["status"].ToString()
                 });
             }
 
