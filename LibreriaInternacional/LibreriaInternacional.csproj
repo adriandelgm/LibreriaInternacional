@@ -74,6 +74,8 @@
     <Compile Include="Controller\Buy.cs" />
     <Compile Include="Controller\LogIn.cs" />
     <Compile Include="DatabaseHelper\Database.cs" />
+    <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="View\BookInfo.aspx.cs">
       <DependentUpon>BookInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
