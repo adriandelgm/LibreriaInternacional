@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using a = LibreriaInternacional.Models;
@@ -41,9 +42,9 @@ namespace LibreriaInternacional.Controller
                     Title = row["Title"].ToString(),
                     Author = row["Author"].ToString(),
                     Description = row["Description"].ToString(),
-                    PublishingDate = row["PublishingDate"].ToString(),
-                    Price = Convert.ToDecimal(row["price"]),
-                    Status = row["status"].ToString()
+                    Price = row["Price"].ToString(),
+                    Status = row["status"].ToString(),
+                    PublishingDate = row["PublishingDate"].ToString()
                 });
             }
 

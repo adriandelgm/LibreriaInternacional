@@ -25,22 +25,6 @@ namespace LibreriaInternacional.Controller
             }
         }
 
-        public bool DeleteBook(int idBook)
-        {
-            try
-            {
-                DatabaseHelper.Database db = new DatabaseHelper.Database();
-
-                db.DeleteBook(idBook);
-
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
         public List<a.Books> GetBooks()
         {
             List<a.Books> BookList= new List<a.Books>();
@@ -60,7 +44,7 @@ namespace LibreriaInternacional.Controller
                     Author = row["Author"].ToString(),
                     Description = row["Description"].ToString(),
                     PublishingDate = row["PublishingDate"].ToString(),
-                    Price = Convert.ToDecimal(row["price"]),
+                    Price = row["price"].ToString(),
                     Status = row["status"].ToString()
 
                 });
