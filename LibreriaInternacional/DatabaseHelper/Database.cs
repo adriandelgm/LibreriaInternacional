@@ -16,7 +16,7 @@ namespace LibreriaInternacional.DatabaseHelper
 
         public DataTable GetBooks()
         {
-            return this.Fill("[dbo].[spGetBook]", null);
+            return this.Fill("[dbo].[spGetBooks]", null);
         }
 
         public DataTable GetBooks(int idBook)
@@ -44,7 +44,7 @@ namespace LibreriaInternacional.DatabaseHelper
                 new SqlParameter("status", books.Status)
             };
 
-            this.ExecuteQuery("[dbo].[spGetBook]", param);
+            this.ExecuteQuery("[dbo].[spSaveCart]", param);
         }
 
         public DataTable GetCart(string ISBN)
@@ -54,14 +54,14 @@ namespace LibreriaInternacional.DatabaseHelper
                 new SqlParameter("ISBN", ISBN)
             };
 
-            return this.Fill("GetCart", param);
+            return this.Fill("[dbo].[spGetCart]", param);
         }
 
         public void DeleteCartBook(int idBook)
         {
             List<SqlParameter> param = new List<SqlParameter>()
             {
-                new SqlParameter("idBook", idBook),
+                new SqlParameter("idBook", idBook)
             };
 
             this.ExecuteQuery("[dbo].[spDeleteCartBook]", param);
