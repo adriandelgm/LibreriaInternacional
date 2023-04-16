@@ -5,9 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
-    <link rel="stylesheet" id="theme_link" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.2/lux/bootstrap.min.css" />
-    <link href="../css/Books.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <title>Librería Internacional</title>
     <link rel="icon" type="image/x-icon" href="https://cmplima.org.pe/wp-content/uploads/2022/09/Libro-de-reclamaciones-Azul-300x300-1.png" />
 </head>
@@ -16,32 +16,22 @@
         <div>
             <nav class="navbar navbar-expand-lg bg-light">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Navbar</a>
+                    <a class="navbar-brand" href="#">
+                        <img height="50px" width="200px" src="https://neurobrand.net/wp-content/uploads/2023/01/Libreria-INternacional-1-1024x252.png" alt="alt" />
+                    </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <a class="nav-link active" aria-current="page" href="LibreriaInternacional.aspx">Libros</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
+                                <a class="nav-link" href="#">Cesta</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link disabled">Disabled</a>
+                                <a class="nav-link disabled">Usuarios</a>
                             </li>
                         </ul>
                         <form class="d-flex" role="search">
@@ -51,26 +41,75 @@
                     </div>
                 </div>
             </nav>
-            <asp:Repeater ID="repBooks" runat="server">
-                <HeaderTemplate>
-                    <div class="container">
-                        <div class="row">
-                </HeaderTemplate>
-                <ItemTemplate>
-                    <div class="card" style="width: 18rem; margin-left: 1px">
-                        <img src="<%# Eval("Image")%>" class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            <h5 class="card-title"><%# Eval("Title")%></h5>
-                            <p class="card-text"><%# Eval("Description")%></p>
-                            <a href="BookInfo.aspx?id=<%# Eval("ISBN")%>" class="btn btn-primary">Buy by $<%# Eval("Price")%></a>
+        </div>
+        <div>
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col">
+                    </div>
+                    <div class="col-8">
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="../Images/p1.png" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../Images/p2.png" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../Images/p3.png" class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
                         </div>
                     </div>
-                </ItemTemplate>
-                <FooterTemplate>
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="https://img.freepik.com/vector-gratis/concepto-dia-mundial-libro-dibujado-mano_23-2148481517.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">¡Celebrá el día del libro con nosotros!</p>
+                                <hr />
+                                <p class="card-text">Eventos especiales para niños en nuestros centros de venta el día 23 de Abril</p>
+                            </div>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <hr />
+        <p class="text-center" style="font-size: 25px;">Explora nuestro catálogo de libros</p>
+        <hr />
+        <div class="text-center">
+            <div class="row container-fluid">
+                <asp:Repeater ID="repBooks" runat="server">
+                            <HeaderTemplate>
+                                <div class="container-fluid">
+                                    <div class="row">
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <div class="card" style="width: 18rem; margin-left: 5px; margin-right: 5px">
+                                    <img src="<%# Eval("Image")%>" class="card-img-top" alt="..." />
+                                    <div class="card-body">
+                                        <h5 class="card-title"><%# Eval("Title")%></h5>
+                                        <p class="card-text"><%# Eval("Description")%></p>
+                                        <a href="BookInfo.aspx?id=<%# Eval("ISBN")%>" class="btn btn-outline-warning">Buy by $<%# Eval("Price")%></a>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                            <FooterTemplate>
+                                </div>
                     </div>
-                </FooterTemplate>
-            </asp:Repeater>
+                            </FooterTemplate>
+                        </asp:Repeater>
+            </div>
         </div>
     </form>
 </body>

@@ -80,6 +80,9 @@
     <Content Include="Images\7.jpg" />
     <Content Include="Images\8.jpg" />
     <Content Include="Images\9.jpg" />
+    <Content Include="Images\p1.png" />
+    <Content Include="Images\p2.png" />
+    <Content Include="Images\p3.png" />
     <Content Include="View\BookInfo.aspx" />
     <Content Include="View\LibreriaInternacional.aspx" />
     <Content Include="Web.config" />
