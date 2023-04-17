@@ -29,43 +29,47 @@ namespace LibreriaInternacional.DatabaseHelper
             return this.Fill("[dbo].[spGetBook]", param);
         }
 
-        public void BuyBook(a.Books books)
+        public DataTable GetSearchedBook(string search)
         {
+
             List<SqlParameter> param = new List<SqlParameter>()
             {
-                new SqlParameter("idBook", books.idBook),
-                new SqlParameter("ISBN", books.ISBN),
-                new SqlParameter("Image", books.Image),
-                new SqlParameter("Title", books.Title),
-                new SqlParameter("Author", books.Author),
-                new SqlParameter("PublishingDate", books.PublishingDate),
-                new SqlParameter("Price", books.Price),
-                new SqlParameter("Description", books.Description),
-                new SqlParameter("status", books.Status)
+                new SqlParameter("@search", search),
             };
 
-            this.ExecuteQuery("[dbo].[spSaveCart]", param);
+            return this.Fill("[dbo].[spGetSearchedBook]", param);
         }
 
-        public DataTable GetCart(string ISBN)
+        public void SaveCartBook(a.Books book)
         {
             List<SqlParameter> param = new List<SqlParameter>()
             {
-                new SqlParameter("ISBN", ISBN)
+                new SqlParameter("@bookId", book.idBook),
+                new SqlParameter("@Email", book.email),
             };
 
-            return this.Fill("[dbo].[spGetCart]", param);
+            this.ExecuteQuery("[dbo].[spSaveFavoriteBook]", param);
+        }
+        public DataTable GetCartBooks(string Email)
+        {
+
+            List<SqlParameter> param = new List<SqlParameter>()
+            {
+                new SqlParameter("@Email", Email),
+            };
+
+            return this.Fill("[dbo].[spGetFavoriteBooks]", param);
         }
 
-        public void DeleteBook(string email, int idBook)
+        public void DeleteCartBook(string Email, int bookId)
         {
             List<SqlParameter> param = new List<SqlParameter>()
             {
-                new SqlParameter("@email", email),
-                new SqlParameter("idBook", idBook)
+                new SqlParameter("@Email", Email),
+                new SqlParameter("@bookId", bookId),
             };
 
-            this.ExecuteQuery("[dbo].[spDeleteBook]", param);
+            this.ExecuteQuery("[dbo].[spDeleteFavoriteBook]", param);
         }
 
         public DataTable Fill(string storedProcedure, List<SqlParameter> param)

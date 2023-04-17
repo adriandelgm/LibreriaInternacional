@@ -4,8 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Librería Internacional</title>
+    <link rel="icon" type="image/x-icon" href="https://cmplima.org.pe/wp-content/uploads/2022/09/Libro-de-reclamaciones-Azul-300x300-1.png" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -42,6 +46,50 @@
         <!--------NAV-------->
         <!--------BODY-------->
         <br />
+        <!--------REP-------->
+        <div class="row no-gutters">
+            <asp:Repeater ID="repCart" runat="server">
+                <ItemTemplate>
+                    <!-- Product Area -->
+                    <div class="col-12 col-sm-6">
+                        <div class="single-product-wrapper">
+                            <!-- Product Image -->
+                            <div>
+                                <a href="InfoBook.aspx?Id=<%# Eval("idBook")%>">
+                                    <img src="<%#Eval ("Image")%>" style="width: 300px; height: 400px;" />
+                            </div>
+
+                            <!-- Product Description -->
+                            <div class="product-description d-flex align-items-center">
+                                <!-- Product Meta Data -->
+                                <div class="product-meta-data">
+                                    <div class="line"></div>
+                                    <p class="product-price">₡ <%#Eval ("Price")%></p>
+                                    <a href="InfoBook.aspx?Id=<%# Eval("idBook")%>">
+                                        <h4><%#Eval ("Title")%> </h4>
+                                    </a>
+                                </div>
+                                <!-- Ratings & Cart -->
+                                <div class="ratings-cart text-right">
+                                    <div class="ratings">
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="cart">
+                                        <button dataid='<%# Eval("idBook")%>' runat="server" onserverclick="btnDelete_ServerClick" data-toggle="tooltip" data-placement="left" title="Eliminar libro de favoritos">
+                                            <img src="../css/PageStyle/img/core-img/trash-2.jpg" /></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
+        </div>
+        <!--------REP-------->
         <!--------BODY-------->
         <!--------FOOTER-------->
         <footer class="text-center text-white" style="background-color: #f1f1f1;">

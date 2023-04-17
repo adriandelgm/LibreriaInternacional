@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibreriaInternacional.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -28,6 +29,60 @@ namespace LibreriaInternacional.Controller
             return ConvertDSToList(ds);
         }
 
+        public List<a.Books> GetSearchedBook(string search)
+        {
+            List<a.Books> bookList = new List<a.Books>();
+
+            DatabaseHelper.Database db = new DatabaseHelper.Database();
+
+            DataTable ds = db.GetSearchedBook(search);
+
+            return ConvertDSToList(ds);
+        }
+
+        public bool SaveCartBook(a.Books book)
+        {
+            try
+            {
+                DatabaseHelper.Database db = new DatabaseHelper.Database();
+
+                db.SaveCartBook(book);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public List<a.Books> GetCartBooks(LoginResponsePayload session)
+        {
+            List<a.Books> bookList = new List<a.Books>();
+
+            DatabaseHelper.Database db = new DatabaseHelper.Database();
+
+            DataTable ds = db.GetCartBooks(session.email);
+
+            return ConvertDSToList(ds);
+        }
+
+        public bool DeleteCartBook(string Email, int bookId)
+        {
+            try
+            {
+                DatabaseHelper.Database db = new DatabaseHelper.Database();
+
+                db.DeleteCartBook(Email, bookId);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public List<a.Books> ConvertDSToList(DataTable ds)
         {
             List<a.Books> booksList = new List<a.Books>();
@@ -43,7 +98,6 @@ namespace LibreriaInternacional.Controller
                     Author = row["Author"].ToString(),
                     Description = row["Description"].ToString(),
                     Price = row["Price"].ToString(),
-                    Status = row["status"].ToString(),
                     PublishingDate = row["PublishingDate"].ToString()
                 });
             }

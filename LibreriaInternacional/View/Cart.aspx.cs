@@ -28,36 +28,22 @@ namespace LibreriaInternacional.View
         public void LoadCart()
         {
             a.LoginResponsePayload session = (a.LoginResponsePayload)Session["loginInfo"];
-
-            b.Buy CartController = new b.Buy();
-
-            repCart.DataSource = CartController.GetCart(session);
+            b.Book bookController = new b.Book();
+            repCart.DataSource = bookController.GetCartBooks(session);
             repCart.DataBind();
-
-            if (repCart.Items.Count == 0)
-            {
-                divNoBooks.Attributes.Remove("hidden");
-            }
         }
 
         protected void btnDelete_ServerClick(object sender, EventArgs e)
         {
+            string msg = string.Empty;
             var button = (HtmlButton)sender;
-            Session["bookId"] = Convert.ToInt16(button.Attributes["dataId"]);
+            Session["idBook"] = Convert.ToInt16(button.Attributes["dataId"]);
 
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction",
-                "showModal('Delete booking','Do you really want to delete this booking?')", true);
-        }
-
-        protected void btnConfirmDelete_ServerClick(object sender, EventArgs e)
-        {
-            int bookId = Convert.ToInt16(Session["bookId"]);
-
+            int idBook = Convert.ToInt16(Session["idBook"]);
             a.LoginResponsePayload session = (a.LoginResponsePayload)Session["loginInfo"];
 
-            b.Buy bookController = new b.Buy();
-            bookController.DeleteBook(session.email, bookId);
-
+            b.Book bookController = new b.Book();
+            bookController.DeleteCartBook(session.email, idBook);
             LoadCart();
         }
     }

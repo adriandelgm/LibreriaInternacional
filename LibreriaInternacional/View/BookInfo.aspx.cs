@@ -15,39 +15,25 @@ namespace LibreriaInternacional.View
         {
             if (!IsPostBack)
             {
-                if (Session["loginInfo"] == null)
-                {
-                    Response.Redirect("Booking.aspx?session=false");
-                }
-
-                int idBook = Convert.ToInt16(Request.QueryString["id"]);
+                int idBook = Convert.ToInt16(Request.QueryString["idBook"]);
 
                 b.Book BookController = new b.Book();
                 List<a.Books> book = BookController.GetBook(idBook);
                 Session["book"] = book;
 
-
-                CalculateUnitsCost(false);
-
-                repBooks.DataSource = book;
-                repBooks.DataBind();
+                repInfo.DataSource = book;
+                repInfo.DataBind();
             }
         }
 
-        private void CalculateUnitsCost(bool flag)
-        {
-
-        }
-        protected void btnSave_ServerClick(object sender, EventArgs e)
+        protected void btnCart_ServerClick(object sender, EventArgs e)
         {
             string msg = string.Empty;
-            a.Cart buy = (a.Cart)Session["Buy"];
+            a.Books books = (a.Books)Session["Books"];
 
-            if (buy.isReady)
-            {
-                b.Buy controllerBuy = new b.Buy();
+                b.Book controllerBook = new b.Book();
 
-                if (controllerBuy.BuyBook(buy))
+                if (controllerBook.SaveCartBook(books))
                 {
                     msg = "Libro añadido a cesta";
                 }
@@ -55,11 +41,6 @@ namespace LibreriaInternacional.View
                 {
                     msg = "Error al añadir libro a cesta";
                 }
-            }
-            else
-            {
-                msg = "Por favor confirma las unidades antes de continuar";
-            }
 
             Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showModal('Book','" + msg + "')", true);
         }

@@ -32,7 +32,7 @@
                                 <a class="nav-link" href="Cart.aspx">Cesta</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link disabled">Usuarios</a>
+                                <a class="nav-link" href="#offcanvasExample" data-bs-toggle="offcanvas" aria-controls="offcanvasExample">Usuarios</a>
                             </li>
                         </ul>
                         <form class="d-flex" role="search">
@@ -102,12 +102,12 @@
                             <div class="row">
                     </HeaderTemplate>
                     <ItemTemplate>
-                        <div class="card text-center" style="width: 18rem; height:35rem; margin-left: 5px; margin-right: 5px; border: none">
+                        <div class="card text-center" style="width: 18rem; height: 35rem; margin-left: 5px; margin-right: 5px; border: none">
                             <img src="<%# Eval("Image")%>" class="card-img" style="height: 400px; width: 270px;" alt="..." />
                             <div class="card-body">
                                 <h5 class="card-title"><%# Eval("Title")%></h5>
                                 <hr />
-                                <a href="BookInfo.aspx?id=<%# Eval("ISBN")%>" class="btn btn-outline-warning">Buy by $<%# Eval("Price")%></a>
+                                <a href="BookInfo.aspx?id=<%# Eval("ISBN")%>" class="btn btn-outline-warning">Ver más $<%# Eval("Price")%></a>
                             </div>
                         </div>
                     </ItemTemplate>
