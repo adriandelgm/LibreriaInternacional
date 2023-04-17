@@ -15,15 +15,6 @@ namespace LibreriaInternacional.View
     {
 
         /// <summary>
-        /// Control theme_link.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlLink theme_link;
-
-        /// <summary>
         /// Control form1.
         /// </summary>
         /// <remarks>
@@ -33,12 +24,12 @@ namespace LibreriaInternacional.View
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control repBook.
+        /// Control repBooks.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repBook;
+        protected global::System.Web.UI.WebControls.Repeater repBooks;
     }
 }

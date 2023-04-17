@@ -90,27 +90,42 @@
         <div class="text-center">
             <div class="row container-fluid">
                 <asp:Repeater ID="repBooks" runat="server">
-                            <HeaderTemplate>
-                                <div class="container-fluid">
-                                    <div class="row">
-                            </HeaderTemplate>
-                            <ItemTemplate>
-                                <div class="card" style="width: 18rem; margin-left: 5px; margin-right: 5px">
-                                    <img src="<%# Eval("Image")%>" class="card-img-top" alt="..." />
-                                    <div class="card-body">
-                                        <h5 class="card-title"><%# Eval("Title")%></h5>
-                                        <p class="card-text"><%# Eval("Description")%></p>
-                                        <a href="BookInfo.aspx?id=<%# Eval("ISBN")%>" class="btn btn-outline-warning">Buy by $<%# Eval("Price")%></a>
-                                    </div>
-                                </div>
-                            </ItemTemplate>
-                            <FooterTemplate>
-                                </div>
+                    <HeaderTemplate>
+                        <div class="container-fluid">
+                            <div class="row">
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <div class="card" style="width: 18rem; margin-left: 5px; margin-right: 5px">
+                            <img src="<%# Eval("Image")%>" class="card-img-top" style="height: 275px; width: 197px;" alt="..." />
+                            <div class="card-body">
+                                <h5 class="card-title"><%# Eval("Title")%></h5>
+                                <a href="BookInfo.aspx?id=<%# Eval("ISBN")%>" class="btn btn-outline-warning">Buy by $<%# Eval("Price")%></a>
+                            </div>
+                        </div>
+                    </ItemTemplate>
+                    <FooterTemplate>
+                        </div>
                     </div>
-                            </FooterTemplate>
-                        </asp:Repeater>
+                    </FooterTemplate>
+                </asp:Repeater>
             </div>
         </div>
+        <footer class="text-center text-white" style="background-color: #f1f1f1;">
+            <div class="container pt-4">
+                <section class="mb-4">
+                    <p class="text-center text-dark">
+                        CORREO ELECTRÓNICO:
+servicioweb@libreriainternacional.com
+TELÉFONO:
+800-LIBRERÍA(542-73742)
+                    </p>
+                </section>
+            </div>
+            <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                © 2020 Copyright:
+    <a class="text-dark" href="...">LibreriaInternacional</a>
+            </div>
+        </footer>
     </form>
 </body>
 </html>

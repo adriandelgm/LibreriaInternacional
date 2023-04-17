@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using a = LibreriaInternacional.Models;
 using b = LibreriaInternacional.Controller;
 
 namespace LibreriaInternacional.View
@@ -12,11 +13,14 @@ namespace LibreriaInternacional.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            b.Book bookController = new b.Book();
-            int ISBN = Convert.ToInt16(Request.QueryString["ISBN"]);
+            int idBook = Convert.ToInt16(Request.QueryString["idBook"]);
 
-            repBook.DataSource = bookController.GetBook(ISBN);
-            repBook.DataBind();
+            b.Book BookController = new b.Book();
+            List<a.Books> book = BookController.GetBook(idBook);
+            Session["book"] = book;
+
+            repBooks.DataSource = book;
+            repBooks.DataBind();
         }
     }
 }
