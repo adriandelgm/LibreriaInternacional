@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibreriaInternacional.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -40,12 +41,12 @@ namespace LibreriaInternacional.Controller
             }
         }
 
-        public List<a.Books> GetBooks()
+        public List<a.Books> GetCart(LoginResponsePayload session)
         {
             List<a.Books> BookList= new List<a.Books>();
             DatabaseHelper.Database db = new DatabaseHelper.Database();
 
-            DataTable ds = db.GetBooks();
+            DataTable ds = db.GetCart(session.email);
 
             foreach (DataRow row in ds.Rows)
             {

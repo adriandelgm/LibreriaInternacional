@@ -19,7 +19,7 @@ namespace LibreriaInternacional.DatabaseHelper
             return this.Fill("[dbo].[spGetBooks]", null);
         }
 
-        public DataTable GetBooks(int idBook)
+        public DataTable GetBook(int idBook)
         {
             List<SqlParameter> param = new List<SqlParameter>()
             {

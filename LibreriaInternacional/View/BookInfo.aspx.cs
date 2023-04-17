@@ -13,38 +13,52 @@ namespace LibreriaInternacional.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int idBook = Convert.ToInt16(Request.QueryString["idBook"]);
+            if (!IsPostBack)
+            {
+                if (Session["loginInfo"] == null)
+                {
+                    Response.Redirect("Booking.aspx?session=false");
+                }
 
-            b.Book BookController = new b.Book();
-            List<a.Books> book = BookController.GetBook(idBook);
-            Session["book"] = book;
+                int idBook = Convert.ToInt16(Request.QueryString["id"]);
 
-            repBooks.DataSource = book;
-            repBooks.DataBind();
+                b.Book BookController = new b.Book();
+                List<a.Books> book = BookController.GetBook(idBook);
+                Session["book"] = book;
+
+
+                CalculateUnitsCost(false);
+
+                repBooks.DataSource = book;
+                repBooks.DataBind();
+            }
         }
 
-        //Agregar unidades
+        private void CalculateUnitsCost(bool flag)
+        {
+
+        }
         protected void btnSave_ServerClick(object sender, EventArgs e)
         {
             string msg = string.Empty;
-            a.Cart book = (a.Cart)Session["Book"];
+            a.Cart buy = (a.Cart)Session["Buy"];
 
-            if (book.isReady)
+            if (buy.isReady)
             {
-                b.Buy controllerBook = new b.Buy();
+                b.Buy controllerBuy = new b.Buy();
 
-                if (controllerBook.BuyBook(book))
+                if (controllerBuy.BuyBook(buy))
                 {
-                    msg = "El libro fue añadido a la cesta";
+                    msg = "Libro añadido a cesta";
                 }
                 else
                 {
-                    msg = "Error al añadir libro a la cesta";
+                    msg = "Error al añadir libro a cesta";
                 }
             }
             else
             {
-                msg = "Por favor confirma las unidades";
+                msg = "Por favor confirma las unidades antes de continuar";
             }
 
             Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showModal('Book','" + msg + "')", true);

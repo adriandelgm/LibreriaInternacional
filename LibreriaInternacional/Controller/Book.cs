@@ -23,7 +23,7 @@ namespace LibreriaInternacional.Controller
         {
             DatabaseHelper.Database db = new DatabaseHelper.Database();
 
-            DataTable ds = db.GetBooks(idBook);
+            DataTable ds = db.GetBook(idBook);
 
             return ConvertDSToList(ds);
         }
