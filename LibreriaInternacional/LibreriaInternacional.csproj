@@ -84,6 +84,7 @@
     <Content Include="Images\p2.png" />
     <Content Include="Images\p3.png" />
     <Content Include="View\BookInfo.aspx" />
+    <Content Include="View\Cart.aspx" />
     <Content Include="View\LibreriaInternacional.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -100,6 +101,13 @@
     </Compile>
     <Compile Include="View\BookInfo.aspx.designer.cs">
       <DependentUpon>BookInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\LibreriaInternacional.aspx.cs">
       <DependentUpon>LibreriaInternacional.aspx</DependentUpon>

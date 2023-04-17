@@ -28,7 +28,7 @@
                                 <a class="nav-link active" aria-current="page" href="LibreriaInternacional.aspx">Libros</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Cesta</a>
+                                <a class="nav-link" href="Cart.aspx">Cesta</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link disabled">Usuarios</a>
