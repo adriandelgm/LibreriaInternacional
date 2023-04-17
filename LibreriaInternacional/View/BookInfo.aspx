@@ -13,6 +13,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <!--------NAV-------->
         <div>
             <nav class="navbar navbar-expand-lg bg-light">
                 <div class="container-fluid">
@@ -42,19 +43,52 @@
                 </div>
             </nav>
         </div>
-        
-        <div class="row container-fluid">
+        <!--------NAV-------->
+        <!--------BODY-------->
+        <br />
+        <!--------LAYOUT-------->
+        <div class="container text-center">
+            <div class="row container-fluid">
+                <div class="col">
+                    <asp:Repeater ID="Repeater1" runat="server">
+                        <HeaderTemplate>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <img src="<%# Eval("Image")%>" class="rounded mx-auto d-block" alt="...">
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title"><%# Eval("Title")%></h5>
+                            <hr />
+                            <p class="card-text"><%# Eval("Description")%></p>
+                            <!--add number of books here-->
+                            <div class="card-footer">
+                                <button id="btnSave" class="btn btn-danger" runat="server" onserverclick="btnSave_ServerClick">Agregar a la cesta</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--------LAYOUT-------->
+        <!--------REP-------->
+        <div class="text-center">
+            <div class="row container-fluid">
                 <asp:Repeater ID="repBooks" runat="server">
                     <HeaderTemplate>
                         <div class="container-fluid">
                             <div class="row">
                     </HeaderTemplate>
                     <ItemTemplate>
-                        <div class="card" style="width: 18rem; margin-left: 5px; margin-right: 5px">
-                            <img src="<%# Eval("Image")%>" class="card-img-top" style="height: 275px; width: 197px;" alt="..." />
+                        <div class="card text-center" style="width: 18rem; height: 35rem; margin-left: 5px; margin-right: 5px; border: none">
+                            <img src="<%# Eval("Image")%>" class="card-img" style="height: 400px; width: 270px;" alt="..." />
                             <div class="card-body">
                                 <h5 class="card-title"><%# Eval("Title")%></h5>
-                                <a href="BookInfo.aspx?id=<%# Eval("idBook")%>" class="btn btn-outline-warning">Buy by $<%# Eval("Price")%></a>
+                                <hr />
+                                <a href="BookInfo.aspx?id=<%# Eval("ISBN")%>" class="btn btn-outline-warning">Buy by $<%# Eval("Price")%></a>
                             </div>
                         </div>
                     </ItemTemplate>
@@ -64,15 +98,16 @@
                     </FooterTemplate>
                 </asp:Repeater>
             </div>
-
-            <footer class="text-center text-white" style="background-color: #f1f1f1;">
+        </div>
+        <!--------REP-------->
+        <!--------BODY-------->
+        <!--------FOOTER-------->
+        <footer class="text-center text-white" style="background-color: #f1f1f1;">
             <div class="container pt-4">
                 <section class="mb-4">
                     <p class="text-center text-dark">
-                        CORREO ELECTRÓNICO:
-servicioweb@libreriainternacional.com
-TELÉFONO:
-800-LIBRERÍA(542-73742)
+                        CORREO ELECTRÓNICO: servicioweb@libreriainternacional.com
+TELÉFONO: 800-LIBRERÍA(542-73742)
                     </p>
                 </section>
             </div>
@@ -81,6 +116,7 @@ TELÉFONO:
     <a class="text-dark" href="...">LibreriaInternacional</a>
             </div>
         </footer>
+        <!--------FOOTER-------->
     </form>
 </body>
 </html>

@@ -9,10 +9,13 @@ namespace LibreriaInternacional.Models
     {
         public int idCart { get; set; }
         public int idBook { get; set; }
+        public LoginResponsePayload Session { get; set; }
         public string ISBN { get; set; }
         public string Image { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }
         public string Price { get; set; }
+
+        public bool isReady = false;
     }
 }

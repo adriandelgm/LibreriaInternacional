@@ -22,5 +22,32 @@ namespace LibreriaInternacional.View
             repBooks.DataSource = book;
             repBooks.DataBind();
         }
+
+        //Agregar unidades
+        protected void btnSave_ServerClick(object sender, EventArgs e)
+        {
+            string msg = string.Empty;
+            a.Cart book = (a.Cart)Session["Book"];
+
+            if (book.isReady)
+            {
+                b.Buy controllerBook = new b.Buy();
+
+                if (controllerBook.BuyBook(book))
+                {
+                    msg = "El libro fue añadido a la cesta";
+                }
+                else
+                {
+                    msg = "Error al añadir libro a la cesta";
+                }
+            }
+            else
+            {
+                msg = "Por favor confirma las unidades";
+            }
+
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showModal('Book','" + msg + "')", true);
+        }
     }
 }
