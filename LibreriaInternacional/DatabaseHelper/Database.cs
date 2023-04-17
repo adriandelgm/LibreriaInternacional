@@ -57,14 +57,15 @@ namespace LibreriaInternacional.DatabaseHelper
             return this.Fill("[dbo].[spGetCart]", param);
         }
 
-        public void DeleteCartBook(int idBook)
+        public void DeleteBook(string email, int idBook)
         {
             List<SqlParameter> param = new List<SqlParameter>()
             {
+                new SqlParameter("@email", email),
                 new SqlParameter("idBook", idBook)
             };
 
-            this.ExecuteQuery("[dbo].[spDeleteCartBook]", param);
+            this.ExecuteQuery("[dbo].[spDeleteBook]", param);
         }
 
         public DataTable Fill(string storedProcedure, List<SqlParameter> param)

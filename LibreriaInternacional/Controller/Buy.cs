@@ -24,6 +24,21 @@ namespace LibreriaInternacional.Controller
                 return false;
             }
         }
+        public bool DeleteBook(string email, int idBook)
+        {
+            try
+            {
+                DatabaseHelper.Database db = new DatabaseHelper.Database();
+
+                db.DeleteBook(email, idBook);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         public List<a.Books> GetBooks()
         {
