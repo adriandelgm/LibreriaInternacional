@@ -29,7 +29,7 @@
                                 <a class="nav-link active" aria-current="page" href="LibreriaInternacional.aspx">Libros</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="Cart.aspx">Cesta</a>
+                                <a class="nav-link" href="Cart.aspx?id=<%# Eval("idCart")%>">Cesta</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#offcanvasExample" data-bs-toggle="offcanvas" aria-controls="offcanvasExample">Usuarios</a>

@@ -61,7 +61,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col align-self-start">
-                            <img src="<%#Eval ("Image")%>" class="rounded d-block" height="600px" alt="...">
+                            <img src="<%#Eval ("Image")%>" class="rounded d-block" height="550px" alt="...">
                         </div>
                         <div class="col-8">
                             <h5><%#Eval ("Title")%></h5>
