@@ -44,7 +44,7 @@ namespace LibreriaInternacional.DatabaseHelper
         {
             List<SqlParameter> param = new List<SqlParameter>()
             {
-                new SqlParameter("@bookId", book.idBook),
+                new SqlParameter("@idBook", book.idBook),
                 new SqlParameter("@Email", book.email),
             };
 

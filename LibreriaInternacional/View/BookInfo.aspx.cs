@@ -13,17 +13,15 @@ namespace LibreriaInternacional.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                int idBook = Convert.ToInt16(Request.QueryString["idBook"]);
+            int idBook = Convert.ToInt16(Request.QueryString["id"]);
 
-                b.Book BookController = new b.Book();
-                List<a.Books> book = BookController.GetBook(idBook);
-                Session["book"] = book;
+            b.Book BookController = new b.Book();
+            List<a.Books> book = BookController.GetBook(idBook);
+            Session["book"] = book;
 
-                repInfo.DataSource = book;
-                repInfo.DataBind();
-            }
+            repInfo.DataSource = book;
+            repInfo.DataBind();
+
         }
 
         protected void btnCart_ServerClick(object sender, EventArgs e)

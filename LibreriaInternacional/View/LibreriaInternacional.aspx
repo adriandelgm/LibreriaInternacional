@@ -107,7 +107,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"><%# Eval("Title")%></h5>
                                 <hr />
-                                <a href="BookInfo.aspx?id=<%# Eval("ISBN")%>" class="btn btn-outline-warning">Ver más $<%# Eval("Price")%></a>
+                                <a href="BookInfo.aspx?id=<%# Eval("idBook")%>" class="btn btn-outline-warning">Ver más $<%# Eval("Price")%></a>
                             </div>
                         </div>
                     </ItemTemplate>
