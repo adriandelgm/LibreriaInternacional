@@ -55,25 +55,27 @@
             </nav>
         </div>
         <!--------REP-------->
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-sm-5 col-md-6">
-                    <div class="text-center">
-                        <div class="row container-fluid">
-                            <asp:Repeater ID="repBooks" runat="server">
-                                <ItemTemplate>
+        <div class="container">
+            <asp:Repeater ID="repCart" runat="server">
+                <ItemTemplate>
+                    <div class="row">
+                        <div class="col-sm-5 col-md-6">
+                            <div class="text-center">
+                                <div class="row container-fluid">
                                     <div class="card" style="border: none">
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item">
                                                 <div class="card mb-3" style="max-width: 540px;">
                                                     <div class="row g-0">
                                                         <div class="col-md-4">
-                                                            <img src="<%#Eval ("Image")%>" class="rounded d-block" height="81px" alt="...">
+                                                            <img src="<%#Eval ("Image")%>" class="rounded d-block" height="90px" alt="...">
                                                         </div>
                                                         <div class="col-md-8">
                                                             <div class="card-body">
-                                                                <h6 class="card-title"><%# Eval("Title")%></h6>
-                                                                <p class="card-text"><small class="text-muted"><%#Eval ("Author", "ISBN", "Price")%></small></p>
+                                                                <h6 class="card-title"><%# Eval("Title")%>
+                                                                    <button id="btnDelete" runat="server" onserverclick="btnDelete_ServerClick" type="submit" class="btn">
+                                                                        <img height="15px" width="15px" src="https://cdn4.iconfinder.com/data/icons/linecon/512/delete-512.png" alt="alt" /></button></h6>
+                                                                <p class="card-text"><small class="text-muted"><%#Eval ("Author")%> <%#Eval ("ISBN")%> ₡<%#Eval ("Price")%></small></p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -81,14 +83,25 @@
                                             </li>
                                         </ul>
                                     </div>
-                                </ItemTemplate>
-                            </asp:Repeater>
+                                </div>
+                            </div>
+                        </div>
+                        <!--------REP-------->
+                        <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+                            <h5>Cesta de <%#Eval ("Name")%></h5>
+                            <br />
+                            <h6>Email: <%#Eval ("Email")%></h6>
+                            <h6>País: <%#Eval ("Country")%></h6>
+                            <h6>Estado/Provincia: <%#Eval ("State/Provinde")%></h6>
+                            <h6>Código Postal: <%#Eval ("PostalCode")%></h6>
+                            <h6>Método de pago: <%#Eval ("CC")%></h6>
+                            <h6>Expiración: <%#Eval ("ExpireDate")%></h6>
+                            <hr />
+                            
                         </div>
                     </div>
-                </div>
-                <!--------REP-------->
-                <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">.col-sm-5 .offset-sm-2 .col-md-6 .offset-md-0</div>
-            </div>
+                </ItemTemplate>
+            </asp:Repeater>
         </div>
         <!--------BODY-------->
         <!--------FOOTER-------->

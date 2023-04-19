@@ -14,15 +14,7 @@ namespace LibreriaInternacional.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                if (Session["loginInfo"] == null)
-                {
-                    Response.Redirect("LibreriaInternacional.aspx?session=false");
-                }
-
-                LoadCart();
-            }
+            LoadCart();
         }
 
         public void LoadCart()

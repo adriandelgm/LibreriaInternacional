@@ -11,7 +11,7 @@ namespace LibreriaInternacional.View
 {
 
 
-    public partial class Cart
+    public partial class Favorites
     {
 
         /// <summary>
