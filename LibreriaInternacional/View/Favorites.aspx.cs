@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using a = LibreriaInternacional.Models;
+using b = LibreriaInternacional.Controller;
 
 namespace LibreriaInternacional.View
 {
@@ -29,8 +31,8 @@ namespace LibreriaInternacional.View
 
         public void LoadFavoritePage()
         {
-            m.LoginResponsePayload session = (m.LoginResponsePayload)Session["loginInfo"];
-            c.Books bookController = new c.Books();
+            a.LoginResponsePayload session = (a.LoginResponsePayload)Session["loginInfo"];
+            b.Book bookController = new b.Book();
             repFavorites.DataSource = bookController.GetFavoriteBooks(session);
             repFavorites.DataBind();
         }
@@ -42,9 +44,9 @@ namespace LibreriaInternacional.View
             Session["bookId"] = Convert.ToInt16(button.Attributes["dataId"]);
 
             int bookId = Convert.ToInt16(Session["bookId"]);
-            m.LoginResponsePayload session = (m.LoginResponsePayload)Session["loginInfo"];
+            a.LoginResponsePayload session = (a.LoginResponsePayload)Session["loginInfo"];
 
-            c.Books bookController = new c.Books();
+            b.Book bookController = new b.Book();
             bookController.DeleteFavoriteBook(session.email, bookId);
             msg = $"alert('Libro eliminado de favoritos.')";
             Page.ClientScript.RegisterStartupScript(this.GetType(), "Mensaje", msg, true);
