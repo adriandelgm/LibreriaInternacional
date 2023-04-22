@@ -24,23 +24,57 @@ namespace LibreriaInternacional.View
 
         }
 
-        protected void btnCart_ServerClick(object sender, EventArgs e)
+        protected void userEmail()
         {
             string msg = string.Empty;
-            a.Books books = (a.Books)Session["Books"];
+            if (Session["loginInfo"] == null)
+            {
+                msg = $"alert('Necesitas tener una cuenta para añadir libros a favoritos')";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Mensaje", msg, true);
+            }
+            else
+            {
+                a.LoginResponsePayload session = (a.LoginResponsePayload)Session["loginInfo"];
+                string email = session.email.ToString();
 
-                b.Book controllerBook = new b.Book();
+                List<a.Books> books = (List<a.Books>)Session["book"];
 
-                if (controllerBook.SaveCartBook(books))
+                a.Books book = new a.Books()
                 {
-                    msg = "Libro añadido a cesta";
+                    idBook = books[0].idBook,
+                    email = email,
+                };
+                Session["book"] = book;
+            }
+        }
+        protected void btnFav_ServerClick(object sender, EventArgs e)
+        {
+            string msg = string.Empty;
+            if (Session["loginInfo"] == null)
+            {
+                msg = $"alert('Necesitas tener una cuenta para añadir libros a favoritos')";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Mensaje", msg, true);
+            }
+            else
+            {
+                userEmail();
+                a.Books book = (a.Books)Session["Book"];
+
+                b.Book bookController = new b.Book();
+
+                if (bookController.SaveFavoriteBook(book))
+                {
+                    msg = $"alert('¡Libro añadido a tu lista de favoritos!')";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Mensaje", msg, true);
                 }
                 else
                 {
-                    msg = "Error al añadir libro a cesta";
+                    msg = $"alert('Ocurrió un error al añadir el libro a favoritos.')";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Mensaje", msg, true);
                 }
 
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showModal('Book','" + msg + "')", true);
+            }
+
         }
     }
 }

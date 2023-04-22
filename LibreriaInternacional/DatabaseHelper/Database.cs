@@ -72,6 +72,39 @@ namespace LibreriaInternacional.DatabaseHelper
             this.ExecuteQuery("[dbo].[spDeleteCartBook]", param);
         }
 
+        public void SaveFavoriteBook(a.Books book)
+        {
+            List<SqlParameter> param = new List<SqlParameter>()
+            {
+                new SqlParameter("@bookId", book.Image),
+                new SqlParameter("@Email", book.email),
+            };
+
+            this.ExecuteQuery("[dbo].[spSaveFavoriteBook]", param);
+        }
+
+        public DataTable GetFavoriteBooks(string Email)
+        {
+
+            List<SqlParameter> param = new List<SqlParameter>()
+            {
+                new SqlParameter("@Email", Email),
+            };
+
+            return this.Fill("[dbo].[spGetFavoriteBooks]", param);
+        }
+
+        public void DeleteFavoriteBook(string Email, int bookId)
+        {
+            List<SqlParameter> param = new List<SqlParameter>()
+            {
+                new SqlParameter("@Email", Email),
+                new SqlParameter("@bookId", bookId),
+            };
+
+            this.ExecuteQuery("[dbo].[spDeleteFavoriteBook]", param);
+        }
+
         public DataTable Fill(string storedProcedure, List<SqlParameter> param)
         {
             try

@@ -86,22 +86,28 @@
                                 </div>
                             </div>
                         </div>
-                        <!--------REP-------->
-                        <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
-                            <h5>Cesta de <%#Eval ("Name")%></h5>
-                            <br />
-                            <h6>Email: <%#Eval ("Email")%></h6>
-                            <h6>País: <%#Eval ("Country")%></h6>
-                            <h6>Estado/Provincia: <%#Eval ("State/Provinde")%></h6>
-                            <h6>Código Postal: <%#Eval ("PostalCode")%></h6>
-                            <h6>Método de pago: <%#Eval ("CC")%></h6>
-                            <h6>Expiración: <%#Eval ("ExpireDate")%></h6>
-                            <hr />
-                            
-                        </div>
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
+            <!--------REP-------->
+            <!--------REP2-------->
+            <asp:Repeater ID="Repeater2" runat="server">
+                <ItemTemplate>
+                    <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+                        <h5>Cesta de <%#Eval ("Name")%></h5>
+                        <br />
+                        <h6>Email: <%#Eval ("Email")%></h6>
+                        <h6>País: <%#Eval ("Country")%></h6>
+                        <h6>Estado/Provincia: <%#Eval ("State/Provinde")%></h6>
+                        <h6>Código Postal: <%#Eval ("PostalCode")%></h6>
+                        <h6>Método de pago: <%#Eval ("CC")%></h6>
+                        <h6>Expiración: <%#Eval ("ExpireDate")%></h6>
+                        <hr />
+
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
+            <!--------REP2-------->
         </div>
         <!--------BODY-------->
         <!--------FOOTER-------->

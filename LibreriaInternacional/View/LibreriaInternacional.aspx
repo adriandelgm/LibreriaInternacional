@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous"/>
     <title>Librería Internacional</title>
     <link rel="icon" type="image/x-icon" href="https://cmplima.org.pe/wp-content/uploads/2022/09/Libro-de-reclamaciones-Azul-300x300-1.png" />
 </head>
@@ -29,14 +29,17 @@
                                 <a class="nav-link active" aria-current="page" href="LibreriaInternacional.aspx">Libros</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="Cart.aspx?id=<%# Eval("idCart")%>">Cesta</a>
+                                <a class="nav-link" href="Cart.aspx">Cesta</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#offcanvasExample" data-bs-toggle="offcanvas" aria-controls="offcanvasExample">Usuarios</a>
+                                <a class="nav-link" href="Favorites.aspx">Favoritos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#offcanvasExample" data-bs-toggle="offcanvas" aria-controls="offcanvasExample">Cuenta</a>
                             </li>
                         </ul>
                         <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                             <button class="btn btn-outline-success" type="submit">Search</button>
                         </form>
                     </div>
@@ -56,13 +59,13 @@
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="../Images/p1.png" class="d-block w-100" alt="...">
+                                    <img src="../Images/p1.png" class="d-block w-100" alt="..."/>
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="../Images/p2.png" class="d-block w-100" alt="...">
+                                    <img src="../Images/p2.png" class="d-block w-100" alt="..."/>
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="../Images/p3.png" class="d-block w-100" alt="...">
+                                    <img src="../Images/p3.png" class="d-block w-100" alt="..."/>
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -77,7 +80,7 @@
                     </div>
                     <div class="col">
                         <div class="card" style="width: 18rem;">
-                            <img src="https://img.freepik.com/vector-gratis/concepto-dia-mundial-libro-dibujado-mano_23-2148481517.jpg" class="card-img-top" alt="...">
+                            <img src="https://img.freepik.com/vector-gratis/concepto-dia-mundial-libro-dibujado-mano_23-2148481517.jpg" class="card-img-top" alt="..."/>
                             <div class="card-body">
                                 <p class="card-text">¡Celebrá el día del libro con nosotros!</p>
                                 <hr />
@@ -136,6 +139,51 @@ TELÉFONO: 800-LIBRERÍA(542-73742)
             </div>
         </footer>
         <!--------FOOTER-------->
+        <!--------OFFCANVA-------->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div id="offCanvaHeader" class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Login</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="card" id="cardLogin" runat="server">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="form-label mt-4">Login form</label>
+                            <div class="form-floating mb-3">
+                                <input type="email" runat="server" class="form-control" id="txtEmail" value="brav850@gmail.com" placeholder="name@example.com" />
+                                <label for="floatingInput">Email address</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="text" runat="server" class="form-control" value="Admin$1234" id="txtPassword" placeholder="Password" />
+                                <label for="floatingPassword">Password</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button id="btnLogin" class="btn btn-primary" runat="server" onserverclick="btnLogin_ServerClick">Login</button>
+                    </div>
+                </div>
+                <div hidden="hidden" id="cardUser" runat="server">
+                    <div class="form-group">
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body p-4">
+                                <div class="row">
+                                    <div class="row">
+                                        <h5 id="lblName" runat="server" class="mb-1"></h5>
+                                        <div class="d-flex pt-1">
+                                            <button type="button" class="btn btn-outline-primary me-1 flex-grow-1">View profile</button>
+                                            <button id="btnLogout" runat="server" type="button" class="btn btn-primary flex-grow-1" onserverclick="btnLogout_ServerClick">Logout</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--------OFFCANVA-------->
     </form>
 </body>
 </html>

@@ -56,7 +56,7 @@
         </div>
         <!--------REP-------->
         <div class="container">
-            <asp:Repeater ID="repCart" runat="server">
+            <asp:Repeater ID="repFavorites" runat="server">
                 <ItemTemplate>
                     <div class="card" style="border: none">
                         <ul class="list-group list-group-flush">

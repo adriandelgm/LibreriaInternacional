@@ -83,6 +83,49 @@ namespace LibreriaInternacional.Controller
             }
         }
 
+        public bool SaveFavoriteBook(a.Books book)
+        {
+            try
+            {
+                DatabaseHelper.Database db = new DatabaseHelper.Database();
+
+                db.SaveFavoriteBook(book);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public List<a.Books> GetFavoriteBooks(LoginResponsePayload session)
+        {
+            List<a.Books> bookList = new List<a.Books>();
+
+            DatabaseHelper.Database db = new DatabaseHelper.Database();
+
+            DataTable ds = db.GetFavoriteBooks(session.email);
+
+            return ConvertDSToList(ds);
+        }
+
+        public bool DeleteFavoriteBook(string Email, int bookId)
+        {
+            try
+            {
+                DatabaseHelper.Database db = new DatabaseHelper.Database();
+
+                db.DeleteFavoriteBook(Email, bookId);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public List<a.Books> ConvertDSToList(DataTable ds)
         {
             List<a.Books> booksList = new List<a.Books>();
