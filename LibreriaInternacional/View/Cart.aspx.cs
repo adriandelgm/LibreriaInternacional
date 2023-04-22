@@ -14,7 +14,19 @@ namespace LibreriaInternacional.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadCart();
+            if (Session["loginInfo"] == null)
+            {
+                string msg = string.Empty;
+                msg = $"alert('Necesitas tener una cuenta para acceder a la cesta')";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Mensaje", msg, true);
+                Response.Redirect("LibreriaInternacional.aspx");
+
+            }
+            else
+            {
+                LoadCart();
+
+            }
         }
 
         public void LoadCart()
@@ -36,6 +48,8 @@ namespace LibreriaInternacional.View
 
             b.Book bookController = new b.Book();
             bookController.DeleteCartBook(session.email, idBook);
+            msg = $"alert('Libro eliminado de favoritos.')";
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "Mensaje", msg, true);
             LoadCart();
         }
     }

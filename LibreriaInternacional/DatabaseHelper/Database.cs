@@ -80,7 +80,7 @@ namespace LibreriaInternacional.DatabaseHelper
                 new SqlParameter("@Email", book.email),
             };
 
-            this.ExecuteQuery("[dbo].[spSaveFavoriteBook]", param);
+            this.ExecuteQuery("[dbo].[spSaveFav]", param);
         }
 
         public DataTable GetFavoriteBooks(string Email)
@@ -91,7 +91,7 @@ namespace LibreriaInternacional.DatabaseHelper
                 new SqlParameter("@Email", Email),
             };
 
-            return this.Fill("[dbo].[spGetFavoriteBooks]", param);
+            return this.Fill("[dbo].[spGetFav]", param);
         }
 
         public void DeleteFavoriteBook(string Email, int bookId)
@@ -102,7 +102,7 @@ namespace LibreriaInternacional.DatabaseHelper
                 new SqlParameter("@bookId", bookId),
             };
 
-            this.ExecuteQuery("[dbo].[spDeleteFavoriteBook]", param);
+            this.ExecuteQuery("[dbo].[spDeleteFavBook]", param);
         }
 
         public DataTable Fill(string storedProcedure, List<SqlParameter> param)

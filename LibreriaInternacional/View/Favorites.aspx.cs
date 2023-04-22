@@ -19,7 +19,7 @@ namespace LibreriaInternacional.View
                 string msg = string.Empty;
                 msg = $"alert('Necesitas tener una cuenta para acceder a favoritos')";
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Mensaje", msg, true);
-                Response.Redirect("~/Views/Homepage.aspx");
+                Response.Redirect("LibreriaInternacional.aspx");
 
             }
             else
@@ -37,7 +37,7 @@ namespace LibreriaInternacional.View
             repFavorites.DataBind();
         }
 
-        protected void btnDeleteFavorite_ServerClick(object sender, EventArgs e)
+        protected void btnDeleteFav_ServerClick(object sender, EventArgs e)
         {
             string msg = string.Empty;
             var button = (HtmlButton)sender;

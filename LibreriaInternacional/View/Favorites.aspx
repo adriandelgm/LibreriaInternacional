@@ -70,7 +70,7 @@
                                         <div class="col-md-8">
                                             <div class="card-body">
                                                 <h6 class="card-title"><%# Eval("Title")%>
-                                                    <button id="btnDelete" runat="server" onserverclick="btnDelete_ServerClick" type="submit" class="btn">
+                                                    <button dataid='<%# Eval("Id")%>' runat="server" onserverclick="btnDeleteFav_ServerClick" data-toggle="tooltip" data-placement="left" title="Eliminar libro de favoritos">
                                                         <img height="15px" width="15px" src="https://cdn4.iconfinder.com/data/icons/linecon/512/delete-512.png" alt="alt" /></button></h6>
                                                 <p class="card-text"><small class="text-muted"><%#Eval ("Author")%> <%#Eval ("ISBN")%> ₡<%#Eval ("Price")%></small></p>
                                             </div>
