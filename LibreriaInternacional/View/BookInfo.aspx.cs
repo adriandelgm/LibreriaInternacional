@@ -76,5 +76,35 @@ namespace LibreriaInternacional.View
             }
 
         }
+
+        protected void btnCart_ServerClick(object sender, EventArgs e)
+        {
+            string msg = string.Empty;
+            if (Session["loginInfo"] == null)
+            {
+                msg = $"alert('Necesitas tener una cuenta para añadir libros a la cesta')";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Mensaje", msg, true);
+            }
+            else
+            {
+                userEmail();
+                a.Books book = (a.Books)Session["Book"];
+
+                b.Book bookController = new b.Book();
+
+                if (bookController.SaveCartBook(book))
+                {
+                    msg = $"alert('¡Libro añadido a tu cesta!')";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Mensaje", msg, true);
+                }
+                else
+                {
+                    msg = $"alert('Ocurrió un error al añadir el libro a la cesta.')";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Mensaje", msg, true);
+                }
+
+            }
+
+        }
     }
 }

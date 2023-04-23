@@ -81,7 +81,7 @@
                                         <h6>Precio: ₡<%#Eval ("Price")%></h6>
                                     </div>
                                     <div class="col">
-                                        <button href="#?Id=<%# Eval("idBook")%>" id="btnCart" type="submit" class="btn btn-danger">Añadir a cesta</button>
+                                        <button id="btnCart" runat="server" onserverclick="btnCart_ServerClick" type="submit" class="btn btn-danger">Añadir a cesta</button>
                                         <button id="btnFav" runat="server" onserverclick="btnFav_ServerClick" type="submit" class="btn btn-danger">Añadir a Favoritos</button>
                                     </div>
                                 </div>

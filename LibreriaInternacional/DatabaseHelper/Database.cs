@@ -44,8 +44,7 @@ namespace LibreriaInternacional.DatabaseHelper
         {
             List<SqlParameter> param = new List<SqlParameter>()
             {
-                new SqlParameter("@idBook", book.idBook),
-                new SqlParameter("@Email", book.email),
+                new SqlParameter("@idBook", book.idBook)
             };
 
             this.ExecuteQuery("[dbo].[spSaveCart]", param);
@@ -76,8 +75,7 @@ namespace LibreriaInternacional.DatabaseHelper
         {
             List<SqlParameter> param = new List<SqlParameter>()
             {
-                new SqlParameter("@bookId", book.Image),
-                new SqlParameter("@Email", book.email),
+                new SqlParameter("@idBook", book.idBook)
             };
 
             this.ExecuteQuery("[dbo].[spSaveFav]", param);
