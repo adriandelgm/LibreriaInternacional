@@ -47,7 +47,7 @@ namespace LibreriaInternacional.View
             a.LoginResponsePayload session = (a.LoginResponsePayload)Session["loginInfo"];
 
             b.Book bookController = new b.Book();
-            bookController.DeleteCartBook(session.email, idBook);
+            bookController.DeleteCartBook(idBook);
             msg = $"alert('Libro eliminado')";
             Page.ClientScript.RegisterStartupScript(this.GetType(), "Mensaje", msg, true);
             LoadCart();
