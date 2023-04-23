@@ -46,7 +46,8 @@ namespace LibreriaInternacional.DatabaseHelper
         {
             List<SqlParameter> param = new List<SqlParameter>()
             {
-                new SqlParameter("@idBook", book.idBook)
+                new SqlParameter("@idBook", book.idBook),
+                new SqlParameter("@email", book.email)
             };
 
             this.ExecuteQuery("[dbo].[spSaveCart]", param);
@@ -78,29 +79,18 @@ namespace LibreriaInternacional.DatabaseHelper
             List<SqlParameter> param = new List<SqlParameter>()
             {
                 new SqlParameter("@idBook", book.idBook),
-                new SqlParameter("@email", book.email),
-                new SqlParameter("@ISBN", book.ISBN),
-                new SqlParameter("@Image", book.Image),
-                new SqlParameter("@Title", book.Title),
-                new SqlParameter("@Author", book.Author),
-                new SqlParameter("@Price", book.Price),
+                new SqlParameter("@email", book.email)
             };
 
             this.ExecuteQuery("[dbo].[spSaveFav]", param);
         }
 
-        public DataTable GetFavoriteBooks(string email, int idBook, string ISBN, string Image, string Title, string Author, string Price)
+        public DataTable GetFavoriteBooks(string email)
         {
 
             List<SqlParameter> param = new List<SqlParameter>()
             {
-                new SqlParameter("@idBook", idBook),
-                new SqlParameter("@email", email),
-                new SqlParameter("@ISBN", ISBN),
-                new SqlParameter("@Image", Image),
-                new SqlParameter("@Title", Title),
-                new SqlParameter("@Author", Author),
-                new SqlParameter("@Price", Price),
+                new SqlParameter("@email", email)
             };
 
             return this.Fill("[dbo].[spGetFav]", param);
