@@ -151,7 +151,7 @@ TELÉFONO: 800-LIBRERÍA(542-73742)
                         <div class="form-group">
                             <label class="form-label mt-4">Login form</label>
                             <div class="form-floating mb-3">
-                                <input type="email" runat="server" class="form-control" id="txtEmail" value="brav850@gmail.com" placeholder="name@example.com" />
+                                <input type="email" runat="server" class="form-control" id="txtEmail" value="jesusadri.delgado@gmail.com" placeholder="name@example.com" />
                                 <label for="floatingInput">Email address</label>
                             </div>
                             <div class="form-floating">

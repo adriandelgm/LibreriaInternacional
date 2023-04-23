@@ -80,8 +80,8 @@ namespace LibreriaInternacional
 
         protected void data_ServerClick(object sender, EventArgs e)
         {
-            int id= Convert.ToInt16(GetButton(sender));
-            List<a.Books> bookInfo = new b.Book().GetBook(id);
+            int idBook= Convert.ToInt16(GetButton(sender));
+            List<a.Books> bookInfo = new b.Book().GetBook(idBook);
         }
 
         public string GetButton(object sender)
