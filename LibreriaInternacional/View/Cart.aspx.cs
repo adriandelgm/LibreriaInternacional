@@ -48,9 +48,16 @@ namespace LibreriaInternacional.View
 
             b.Book bookController = new b.Book();
             bookController.DeleteCartBook(session.email, idBook);
-            msg = $"alert('Libro eliminado de favoritos.')";
+            msg = $"alert('Libro eliminado')";
             Page.ClientScript.RegisterStartupScript(this.GetType(), "Mensaje", msg, true);
             LoadCart();
+        }
+
+        protected void btnBuy_ServerClick(object sender, EventArgs e)
+        {
+            string msg = string.Empty;
+            msg = $"alert('Gracias por tu compra')";
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "Mensaje", msg, true);
         }
     }
 }

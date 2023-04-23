@@ -90,7 +90,7 @@
             </asp:Repeater>
             <!--------REP-------->
             <!--------REP2-------->
-            <asp:Repeater ID="Repeater2" runat="server">
+            <asp:Repeater ID="repInvoice" runat="server">
                 <ItemTemplate>
                     <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
                         <h5>Cesta de <%#Eval ("Name")%></h5>
@@ -102,7 +102,7 @@
                         <h6>Método de pago: <%#Eval ("CC")%></h6>
                         <h6>Expiración: <%#Eval ("ExpireDate")%></h6>
                         <hr />
-
+                        <button id="btnBuy" runat="server" onserverclick="btnBuy_ServerClick" type="submit" class="btn btn-success">Comprar</button>
                     </div>
                 </ItemTemplate>
             </asp:Repeater>

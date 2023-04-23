@@ -67,13 +67,13 @@ namespace LibreriaInternacional.Controller
             return ConvertDSToList(ds);
         }
 
-        public bool DeleteCartBook(string Email, int bookId)
+        public bool DeleteCartBook(int bookId)
         {
             try
             {
                 DatabaseHelper.Database db = new DatabaseHelper.Database();
 
-                db.DeleteCartBook(Email, bookId);
+                db.DeleteCartBook(bookId);
 
                 return true;
             }

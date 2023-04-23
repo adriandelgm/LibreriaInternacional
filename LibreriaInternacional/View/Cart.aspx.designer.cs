@@ -33,12 +33,12 @@ namespace LibreriaInternacional.View
         protected global::System.Web.UI.WebControls.Repeater repCart;
 
         /// <summary>
-        /// Control Repeater2.
+        /// Control repInvoice.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Repeater2;
+        protected global::System.Web.UI.WebControls.Repeater repInvoice;
     }
 }
