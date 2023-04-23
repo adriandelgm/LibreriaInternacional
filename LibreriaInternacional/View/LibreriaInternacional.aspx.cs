@@ -88,5 +88,14 @@ namespace LibreriaInternacional
         {
             return ((HtmlAnchor)sender).Attributes["data-idBook"];
         }
+
+        protected void btnSearch_ServerClick(object sender, EventArgs e)
+        {
+            string search = txtSearchedBook.Value.ToString();
+
+            b.Book booksController = new b.Book();
+            repBooks.DataSource = booksController.GetSearchedBook(search); ;
+            repBooks.DataBind();
+        }
     }
 }
