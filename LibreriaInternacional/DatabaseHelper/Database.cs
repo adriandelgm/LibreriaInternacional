@@ -1,7 +1,9 @@
-﻿using System;
+﻿using LibreriaInternacional.Controller;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using a = LibreriaInternacional.Models;
@@ -75,18 +77,30 @@ namespace LibreriaInternacional.DatabaseHelper
         {
             List<SqlParameter> param = new List<SqlParameter>()
             {
-                new SqlParameter("@idBook", book.idBook)
+                new SqlParameter("@idBook", book.idBook),
+                new SqlParameter("@email", book.email),
+                new SqlParameter("@ISBN", book.ISBN),
+                new SqlParameter("@Image", book.Image),
+                new SqlParameter("@Title", book.Title),
+                new SqlParameter("@Author", book.Author),
+                new SqlParameter("@Price", book.Price),
             };
 
             this.ExecuteQuery("[dbo].[spSaveFav]", param);
         }
 
-        public DataTable GetFavoriteBooks(string Email)
+        public DataTable GetFavoriteBooks(string email, int idBook, string ISBN, string Image, string Title, string Author, string Price)
         {
 
             List<SqlParameter> param = new List<SqlParameter>()
             {
-                new SqlParameter("@Email", Email),
+                new SqlParameter("@idBook", idBook),
+                new SqlParameter("@email", email),
+                new SqlParameter("@ISBN", ISBN),
+                new SqlParameter("@Image", Image),
+                new SqlParameter("@Title", Title),
+                new SqlParameter("@Author", Author),
+                new SqlParameter("@Price", Price),
             };
 
             return this.Fill("[dbo].[spGetFav]", param);
