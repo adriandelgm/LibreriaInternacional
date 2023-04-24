@@ -25,7 +25,6 @@ namespace LibreriaInternacional.View
             else
             {
                 LoadCart();
-
             }
         }
 

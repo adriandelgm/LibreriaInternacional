@@ -55,12 +55,12 @@
         </div>
         <!--------REP-------->
         <div class="container">
-            <asp:Repeater ID="repCart" runat="server">
-                <ItemTemplate>
-                    <div class="row">
-                        <div class="col-sm-5 col-md-6">
-                            <div class="text-center">
-                                <div class="row container-fluid">
+            <div class="row">
+                <div class="col-sm-5 col-md-6">
+                    <div class="text-center">
+                        <div class="row container-fluid">
+                            <asp:Repeater ID="repCart" runat="server">
+                                <ItemTemplate>
                                     <div class="card" style="border: none">
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item">
@@ -82,31 +82,25 @@
                                             </li>
                                         </ul>
                                     </div>
-                                </div>
-                            </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            <!--------REP-------->
                         </div>
                     </div>
-                </ItemTemplate>
-            </asp:Repeater>
-            <!--------REP-------->
-            <!--------REP2-------->
-            <asp:Repeater ID="repInvoice" runat="server">
-                <ItemTemplate>
-                    <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
-                        <h5>Cesta de <%#Eval ("Name")%></h5>
-                        <br />
-                        <h6>Email: <%#Eval ("Email")%></h6>
-                        <h6>País: <%#Eval ("Country")%></h6>
-                        <h6>Estado/Provincia: <%#Eval ("State/Provinde")%></h6>
-                        <h6>Código Postal: <%#Eval ("PostalCode")%></h6>
-                        <h6>Método de pago: <%#Eval ("CC")%></h6>
-                        <h6>Expiración: <%#Eval ("ExpireDate")%></h6>
-                        <hr />
-                        <button id="btnBuy" runat="server" onserverclick="btnBuy_ServerClick" type="submit" class="btn btn-success">Comprar</button>
-                    </div>
-                </ItemTemplate>
-            </asp:Repeater>
-            <!--------REP2-------->
+                </div>
+                <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+                <h5>Cesta de Adrian</h5>
+                <br />
+                <h6>Email: jesusadri.delgado@gmail.com></h6>
+                <h6>País: Costa Rica</h6>
+                <h6>Estado/Provincia: SJO</h6>
+                <h6>Código Postal: 10401</h6>
+                <h6>Método de pago: Tarjeta terminada en 5815</h6>
+                <h6>Expiración: 12/26</h6>
+                <hr />
+                <button id="btnBuy" runat="server" onserverclick="btnBuy_ServerClick" type="submit" class="btn btn-success">Comprar</button>
+            </div>
+            </div>        
         </div>
         <!--------BODY-------->
         <!--------FOOTER-------->
