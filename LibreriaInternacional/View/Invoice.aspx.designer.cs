@@ -11,7 +11,7 @@ namespace LibreriaInternacional.View
 {
 
 
-    public partial class Cart
+    public partial class Invoice
     {
 
         /// <summary>
@@ -22,14 +22,5 @@ namespace LibreriaInternacional.View
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-        /// <summary>
-        /// Control repCart.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repCart;
     }
 }

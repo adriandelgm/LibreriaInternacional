@@ -67,7 +67,7 @@
                                                 <div class="card mb-3" style="max-width: 540px;">
                                                     <div class="row g-0">
                                                         <div class="col-md-4">
-                                                            <img src="<%#Eval ("Image")%>" class="rounded d-block" height="90px" alt="...">
+                                                            <img src="<%#Eval ("Image")%>" class="rounded d-block" height="120px" alt="...">
                                                         </div>
                                                         <div class="col-md-8">
                                                             <div class="card-body">
@@ -89,18 +89,18 @@
                     </div>
                 </div>
                 <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
-                <h5>Cesta de Adrian</h5>
-                <br />
-                <h6>Email: jesusadri.delgado@gmail.com></h6>
-                <h6>País: Costa Rica</h6>
-                <h6>Estado/Provincia: SJO</h6>
-                <h6>Código Postal: 10401</h6>
-                <h6>Método de pago: Tarjeta terminada en 5815</h6>
-                <h6>Expiración: 12/26</h6>
-                <hr />
-                <button id="btnBuy" runat="server" onserverclick="btnBuy_ServerClick" type="submit" class="btn btn-success">Comprar</button>
+                    <h5>Cesta de Adrian</h5>
+                    <br />
+                    <h6>Email: jesusadri.delgado@gmail.com></h6>
+                    <h6>País: Costa Rica</h6>
+                    <h6>Estado/Provincia: SJO</h6>
+                    <h6>Código Postal: 10401</h6>
+                    <h6>Método de pago: Tarjeta terminada en 5815</h6>
+                    <h6>Expiración: 12/26</h6>
+                    <hr />
+                    <a href="Invoice.aspx" class="btn btn-success" role="button" aria-pressed="true">Comprar</a>
+                </div>
             </div>
-            </div>        
         </div>
         <!--------BODY-------->
         <!--------FOOTER-------->
